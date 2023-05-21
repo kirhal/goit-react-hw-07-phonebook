@@ -12,10 +12,7 @@ const handleRejected = (state, action) => {
 export const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
-    data: [
-      { id: 666, name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 777, name: 'Hermione Kline', number: '443-89-12' },
-    ],
+    data: [],
     isLoading: false,
     error: null,
   },
@@ -59,6 +56,6 @@ export const contactsSlice = createSlice({
 
 export const contactsReducer = contactsSlice.reducer;
 
-// export const { pushContact, deleteContact } = contactsSlice.actions;
-
 export default contactsSlice.reducer;
+
+// export const { pushContact, deleteContact } = contactsSlice.actions;
