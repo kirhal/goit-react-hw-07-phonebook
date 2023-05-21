@@ -15,17 +15,7 @@ export const contactsSlice = createSlice({
     data: [],
     isLoading: false,
     error: null,
-  },
-  // reducers: {
-  // pushContact(state, action) {
-  //   const contacts = state.data;
-  //   contacts.push(action.payload);
-  // },
-  // deleteContact(state, action) {
-  //   const contacts = state.data;
-  //   state.data = contacts.filter(({ id }) => id !== action.payload);
-  // },
-  // },
+  }, 
   extraReducers: {
     [fetchContacts.pending]: handlePending,
     [postContact.pending]: handlePending,
@@ -57,5 +47,3 @@ export const contactsSlice = createSlice({
 export const contactsReducer = contactsSlice.reducer;
 
 export default contactsSlice.reducer;
-
-// export const { pushContact, deleteContact } = contactsSlice.actions;

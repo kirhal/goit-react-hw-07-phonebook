@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/operations';
-// import { selectContactsList, selectFilter } from 'redux/seleclors';
+import { getContactsList, selectFilter } from 'redux/seleclors';
 
 import css from './Contacts.module.css';
 
-export default function MapContacts() {
-  const contacts = useSelector(state => state.contacts.data);
-  const filter = useSelector(state => state.filter);
+export default function RenderContacts() {
+  const contacts = useSelector(getContactsList);
+  const filter = useSelector(selectFilter);
 
   const dispatch = useDispatch();
 

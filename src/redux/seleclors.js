@@ -5,3 +5,5 @@ export const getError = state => state.contacts.error;
 export const selectFilter = state => state.filter;
 
 export const selectContacts = state => state.contacts;
+
+
