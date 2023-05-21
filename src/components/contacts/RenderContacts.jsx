@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contactsSlice';
+// import { deleteContact } from 'redux/contactsSlice';
 // import { selectContactsList, selectFilter } from 'redux/seleclors';
 
 import css from './Contacts.module.css';
@@ -12,7 +12,7 @@ export default function MapContacts() {
 
   const removeContact = evt => {
     const contactId = evt.currentTarget.id;
-    dispatch(deleteContact(contactId));
+    // dispatch(deleteContact(contactId));
   };
 
   const filterContacts = () => {

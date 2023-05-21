@@ -1,6 +1,6 @@
 // import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+// import { selectContacts } from 'redux/selectors';
 
 import css from './App.module.css';
 
@@ -10,7 +10,7 @@ import MapContacts from './contacts/RenderContacts';
 import FilterContacts from './filter/FilterContacts';
 
 export default function App() {
-  const { data, isLoading, error } = useSelector(getContacts);
+  // const { data, isLoading, error } = useSelector(selectContacts);
   const contacts = useSelector(state => state.contacts.data);
 
   return (
@@ -19,8 +19,8 @@ export default function App() {
         <AddContacts />
       </Section>
       <Section title="Contacts">
-        {isLoading && <p>Loading contacts...</p>}
-        {error && <p>{error}</p>}
+        {/* {isLoading && <p>Loading contacts...</p>}
+        {error && <p>{error}</p>} */}
         {/* Change for DATA */}
         {contacts.length !== 0 && (
           <>
