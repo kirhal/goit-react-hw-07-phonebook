@@ -1,6 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { nanoid } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
+import { postContact } from 'redux/operations';
 // import { pushContact } from 'redux/contactsSlice';
 // import { selectContactsList } from 'redux/seleclors';
 
@@ -25,13 +25,13 @@ export default function AddContacts() {
     const numberValue = form.elements.number.value;
     const currentSubmit = {
       name: nameValue,
-      number: numberValue,
-      id: nanoid(),
+      phone: numberValue,
+      // id: nanoid(),
     };
     if (checkOriginalNames(contacts, nameValue)) {
       Notify.failure(`❌ ${nameValue} is already in contacts list`);
     } else {
-      // dispatch(pushContact(currentSubmit));
+      dispatch(postContact(currentSubmit));
     }
     form.reset();
   };
