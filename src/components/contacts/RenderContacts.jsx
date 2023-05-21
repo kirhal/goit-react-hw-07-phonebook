@@ -1,12 +1,12 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contactsSlice';
-import { selectContactsList, selectFilter } from 'redux/seleclors';
+// import { selectContactsList, selectFilter } from 'redux/seleclors';
 
 import css from './Contacts.module.css';
 
 export default function MapContacts() {
-  // const contacts = useSelector(state => state.contacts.data);
-  // const filter = useSelector(state => state.filter);
+  const contacts = useSelector(state => state.contacts.data);
+  const filter = useSelector(state => state.filter);
 
   const dispatch = useDispatch();
 
@@ -16,10 +16,8 @@ export default function MapContacts() {
   };
 
   const filterContacts = () => {
-    if (selectContactsList.length > 0) {
-      return selectContactsList.filter(({ name }) =>
-        name.toLowerCase().includes(selectFilter)
-      );
+    if (contacts.length > 0) {
+      return contacts.filter(({ name }) => name.toLowerCase().includes(filter));
     }
   };
 

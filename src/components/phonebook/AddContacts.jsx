@@ -1,8 +1,8 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { nanoid } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { pushContact } from 'redux/contactsSlice';
-import { selectContactsList } from 'redux/seleclors';
+// import { selectContactsList } from 'redux/seleclors';
 
 import css from './AddContacts.module.css';
 
@@ -15,7 +15,7 @@ Notify.init({
 });
 
 export default function AddContacts() {
-  // const contacts = useSelector(state => state.contacts.data);
+  const contacts = useSelector(state => state.contacts.data);
   const dispatch = useDispatch();
 
   const addContact = evt => {
@@ -28,7 +28,7 @@ export default function AddContacts() {
       number: numberValue,
       id: nanoid(),
     };
-    if (checkOriginalNames(selectContactsList, nameValue)) {
+    if (checkOriginalNames(contacts, nameValue)) {
       Notify.failure(`❌ ${nameValue} is already in contacts list`);
     } else {
       dispatch(pushContact(currentSubmit));
